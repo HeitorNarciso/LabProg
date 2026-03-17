@@ -1,0 +1,8 @@
+O radar detetou um movimento estranho na anilina. 
+A Ana disse que o rodador de metal estava estragado. 
+Ontem, fomos à missa mas o sacas do gato saltou a janela. 
+A rapar a zona, encontramos um osso antigo. 
+Algumas palavras como "ovo" ou "reviver" sao palindromos.
+No entanto, a palavra "e" e muito curta e "paralelepipedo" e muito longa.
+Sera que o algoritmo vai encontrar a palavra "arara" no meio do texto?
+O sol brilha para todos, mas nem todos sabem o que e um rotor.
