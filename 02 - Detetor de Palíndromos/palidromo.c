@@ -4,12 +4,15 @@
 #include <stdbool.h>
 
 // Função para verificar se uma palavra é palíndromo
-bool ehPalindromo(char *str) {
+bool ehPalindromo(char *str)
+{
     int inicio = 0;
     int fim = strlen(str) - 1;
 
-    while (inicio < fim) {
-        if (tolower(str[inicio]) != tolower(str[fim])) {
+    while (inicio < fim)
+    {
+        if (tolower(str[inicio]) != tolower(str[fim]))
+        {
             return false;
         }
         inicio++;
@@ -18,21 +21,24 @@ bool ehPalindromo(char *str) {
     return true;
 }
 
-int main() {
+int main()
+{
     char nomeFicheiro[100];
     char palavra[50];
 
     printf("Introduza o nome do ficheiro (ex: palavras.txt): ");
-    
+
     // fgets para ler o nome do ficheiro com segurança
-    if (fgets(nomeFicheiro, sizeof(nomeFicheiro), stdin) != NULL) {
-        
+    if (fgets(nomeFicheiro, sizeof(nomeFicheiro), stdin) != NULL)
+    {
+
         // Truncamento: remove o '\n' lido pelo fgets
         nomeFicheiro[strcspn(nomeFicheiro, "\n")] = 0;
 
         FILE *arquivo = fopen(nomeFicheiro, "r");
-        
-        if (arquivo == NULL) {
+
+        if (arquivo == NULL)
+        {
             printf("Erro: Nao foi possivel abrir o ficheiro '%s'.\n", nomeFicheiro);
             return 1;
         }
@@ -40,11 +46,14 @@ int main() {
         printf("A procurar palindromos em '%s'...\n\n", nomeFicheiro);
 
         // Processamento: lê palavra a palavra e filtra por tamanho
-        while (fscanf(arquivo, "%49s", palavra) != EOF) {
+        while (fscanf(arquivo, "%49s", palavra) != EOF)
+        {
             int tam = strlen(palavra);
 
-            if (tam >= 3 && tam <= 10) {
-                if (ehPalindromo(palavra)) {
+            if (tam >= 3 && tam <= 10)
+            {
+                if (ehPalindromo(palavra))
+                {
                     printf("Palindromo encontrado: %s\n", palavra);
                 }
             }
