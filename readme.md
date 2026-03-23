@@ -31,6 +31,15 @@ Este repositório é o meu diário de bordo na aprendizagem de C. Aqui guardo a 
 
 ---
 
+## 4. Correção e Refatoração de Gestor de Estudantes 📘
+**O que faz:** Interface textual para adicionar estudantes, calcular média das notas e listar registos, com gestão dinâmica de memória.
+* **Deteção de bugs:** identifica erros de compilação (`scanf`), inicialização não feita e divisão por zero.
+* **Gestão de memória:** `malloc` inicial para 10 estudantes, `realloc` ao ultrapassar 10 e `free` ao terminar.
+* **Validação de entrada:** notas obrigatoriamente no intervalo 0-20; tratamento de input inválido.
+* **Boas práticas:** elimina globals na versão refatorada, funções puras (`calcularMedia`, `listarEstudantes`), passing de parâmetros e documentação interna.
+
+---
+
 ## ⚠️ Resolução de Problemas (Troubleshooting)
 
 ### Erro: `warning: case label value is less than minimum value for type`

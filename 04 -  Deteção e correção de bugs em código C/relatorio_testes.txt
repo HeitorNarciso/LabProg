@@ -1,0 +1,51 @@
+Relatório de Testes - programa_refatorado.c
+
+1) Teste: Adicionar vários estudantes
+- Entrada:
+  1, Maria 17.5
+  1, João 14
+  1, Ana 20
+  3 (listar)
+  2 (média)
+  0
+- Resultado:
+  Lista exibida com 3 estudantes.
+  Média correta = 17.17.
+- Status: OK
+
+2) Teste: Calcular média sem estudantes
+- Entrada:
+  2 (média)
+  0
+- Resultado:
+  Mensagem "Nenhum estudante registado." e média não calculada na divisao.
+- Status: OK
+
+3) Teste: Adicionar mais de 10 estudantes (capacidade dinamica)
+- Entrada:
+  Inserir 12 estudantes válidos e listar.
+- Resultado:
+  A lista comporta mais de 10 estudantes (realloc expande).
+  Lista exibe 12 entradas.
+- Status: OK
+
+4) Teste: Nota inválida (fora de 0-20)
+- Entrada:
+  1, Paulo 25
+  1, Teresa -3
+- Resultado:
+  Mensagem "Nota inválida (0-20)." e estudante não adicionado.
+- Status: OK
+
+5) Teste: Validação de input
+- Entrada:
+  1, Carlos abc (nota inválida)
+- Resultado:
+  Mensagem "Nota inválida." e loop continua.
+- Status: OK
+
+6) Teste de fuga de memória
+- Ambiente: Valgrind (Linux) / similar
+- Resultado esperado:
+  sem leaks, apenas a memória de programa vivo.
+- Status: não aplicado em Windows, mas código faz free(lista).

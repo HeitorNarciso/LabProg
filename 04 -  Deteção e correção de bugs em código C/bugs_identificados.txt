@@ -1,0 +1,33 @@
+Bugs identificados em bugs.c
+
+1. Linha 24: "scanf("%f" & nota);" - Erro de sintaxe (falta ",").
+   Impacto: Não compila.
+   Categoria: Erro de Sintaxe.
+
+2. Linha 8: Não inclui <locale.h>, usa setlocale().
+   Impacto: potencial warning ou função não declarada.
+   Categoria: Erro de Sintaxe/compilação.
+
+3. Função calcularMedia (linha 56): variável "soma" não inicializada.
+   Impacto: valor indefinido e cálculo incorreto.
+   Categoria: Erro de Execução.
+
+4. Função calcularMedia (linha 59): divisão por numEstudantes sem conferir 0.
+   Impacto: divisão por zero se nenhum estudante.
+   Categoria: Erro de Execução.
+
+5. Usam-se variáveis globais "estudantes" e "numEstudantes".
+   Impacto: mau design e potencial conflito de âmbito.
+   Categoria: Problema de Âmbito.
+
+6. Função libertarMemoria() não faz free(estudantes).
+   Impacto: fuga de memória (memória alocada não liberada).
+   Categoria: Fuga de Memória.
+
+7. Lista fixa de 10 estudantes no malloc, sem reallocation.
+   Impacto: limitações e possibilidade de overflow se não validado.
+   Categoria: Erro de Execução/Design.
+
+8. falta validação de notas (0-20)
+   Impacto: podem entrar notas inválidas.
+   Categoria: Erro de Execução.
