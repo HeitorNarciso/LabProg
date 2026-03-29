@@ -48,6 +48,41 @@ Este aviso ocorria porque o `char` padrão no GCC é assinado (`-128` a `127`). 
 
 ---
 
+## 5. Calculadora modularizada com header e implementação separada ➗
+**Objetivo do enunciado:** Modularizar um pequeno programa em C, organizando interface e implementação.
+
+### Ficheiros criados
+* `calculator.h` - interface com protótipos.
+* `calculator.c` - implementação das operações.
+* `main.c` - programa principal que utiliza `calculator.h`.
+
+### Requisitos da `calculator.h`
+* Header guard único e coerente: `CALCULATOR_H`.
+* Funções declaradas:
+  - `double add(double a, double b);`
+  - `double subtract(double a, double b);`
+  - `double multiply(double a, double b);`
+  - `double divide(double a, double b);`
+* Não há implementação no `.h` (só protótipos).
+* Formatação consistente e comentários técnicos ao estilo C.
+
+### Ajuste ao enunciado original
+O enunciado pedia funções `int multiplicar(int a, int b)` e `int subtrair(int a, int b)`; adaptámos para as versões `double` no projeto porque a calculadora principal trabalha com `double` e inclui divisão com ponto flutuante.
+
+### Justificação do nome do header guard
+Escolhi `CALCULATOR_H` porque:
+1) é consistente com o nome do ficheiro (`calculator.h`);
+2) usa maiúsculas e underscore, padrão de header guards em C;
+3) é único no projeto e evita colisões com outros headers da workspace;
+4) mantém semântica clara: identifica precisamente o módulo de calculadora.
+
+### Resultado esperado
+* `main.c` lê opção e dois números;
+* operações são feitas por chamadas a `add/subtract/multiply/divide` via `calculator.h`;
+* a compilação pela task genérica se certifica de incluir todos os `*.c` do diretório e evitar `undefined reference`.
+
+---
+
 ## 🚀 Como Compilar e Gerir
 
 ### No VS Code
