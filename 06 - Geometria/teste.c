@@ -4,7 +4,10 @@
 
 int main()
 {
-    setlocale(LC_ALL, "");
+    if (setlocale(LC_ALL, "pt_PT.UTF-8") == NULL) {
+        setlocale(LC_ALL, "Portuguese_Portugal.1252");
+    }
+
     char option;
     do
     {
