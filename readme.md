@@ -1,4 +1,4 @@
-# 📚 Laboratório de Programação (C) - UAb
+ # 📚 Laboratório de Programação (C) - UAb
 
 Este repositório é o meu diário de bordo na aprendizagem de C. Aqui guardo a lógica, os desafios e as soluções encontradas durante o curso na **Universidade Aberta**.
 
@@ -80,6 +80,45 @@ Escolhi `CALCULATOR_H` porque:
 * `main.c` lê opção e dois números;
 * operações são feitas por chamadas a `add/subtract/multiply/divide` via `calculator.h`;
 * a compilação pela task genérica se certifica de incluir todos os `*.c` do diretório e evitar `undefined reference`.
+
+---
+
+## 06 - Geometria 🧮
+**Objetivo:** Biblioteca de geométrica modular com 3 ficheiros (`geometria.h`, `geometria.c`, `teste.c`), seguindo separação interface/implementação e teste de integração.
+
+### Componentes
+* `geometria.h` - header guard `GEOMETRIA_H`; declarações de:
+  - `double area_circle(double radius);`
+  - `double perimetro_circle(double radius);`
+  - `double area_rectangle(double length, double width);`
+  - `double perimetro_rectangle(double length, double width);`
+  - `double area_triangle(double base, double height);`
+  - `double perimetro_triangle(double side1, double side2, double side3);`
+  - `double area_square(double side);`
+  - `double perimetro_square(double side);`
+
+* `geometria.c` - implementações com `PI` local:
+  - `static const double PI = 3.14159;`
+  - operações de área/perímetro de círculo, retângulo, triângulo e quadrado.
+
+* `teste.c` - menu em português e validação de input:
+  - chamadas: `area_circle`, `perimetro_circle`, etc.
+  - resultado formatado com `%.2f`.
+  - usa `setlocale(LC_ALL, "");` para acentos.
+
+### Como testar
+```bash
+cd "06 - Geometria"
+chcp 65001      # no Windows para UTF-8
+C:/msys64/ucrt64/bin/gcc.exe -Wall -Wextra -Wpedantic -g *.c -o teste.exe
+./teste.exe
+```
+
+### Saída exemplo
+```
+Área do círculo (r=5.00): 78.54
+Área do retângulo (3.00 x 4.00): 12.00
+```
 
 ---
 
