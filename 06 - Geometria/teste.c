@@ -1,22 +1,24 @@
 #include <stdio.h>
+#include <locale.h>
 #include "geometria.h"
 
 int main()
 {
+    setlocale(LC_ALL, "");
     char option;
     do
     {
-        printf("Welcome to the geometry calculator!\n");
-        printf("Enter the option you want to perform:\n");
-        printf("a) Calculate the area of a circle\n");
-        printf("b) Calculate the perimeter of a circle\n");
-        printf("c) Calculate the area of a rectangle\n");
-        printf("d) Calculate the perimeter of a rectangle\n");
-        printf("e) Calculate the area of a triangle\n");
-        printf("f) Calculate the perimeter of a triangle\n");
-        printf("g) Calculate the area of a square\n");
-        printf("h) Calculate the perimeter of a square\n");
-        printf("i) Exit\n");
+        printf("Bem-vindo ao calculador de geometria!\n");
+        printf("Escolha a operação:\n");
+        printf("a) Calcular área do círculo\n");
+        printf("b) Calcular perímetro do círculo\n");
+        printf("c) Calcular área do retângulo\n");
+        printf("d) Calcular perímetro do retângulo\n");
+        printf("e) Calcular área do triângulo\n");
+        printf("f) Calcular perímetro do triângulo\n");
+        printf("g) Calcular área do quadrado\n");
+        printf("h) Calcular perímetro do quadrado\n");
+        printf("i) Sair\n");
         printf("Enter your choice: ");
         scanf(" %c", &option); // espaço para consumir whitespaces pendentes
 
@@ -31,25 +33,25 @@ int main()
         case 'a':
         {
             double radius;
-            printf("Enter the radius of the circle: ");
+            printf("Informe o raio do círculo: ");
             if (scanf("%lf", &radius) != 1 || radius < 0)
             {
-                fprintf(stderr, "Invalid input for radius.\n");
+                fprintf(stderr, "Entrada inválida para o raio.\n");
                 break;
             }
-            printf("Area of the circle: %.2lf\n", area_circle(radius));
+            printf("Área do círculo (r=%.2f): %.2f\n", radius, area_circle(radius));
         }
         break;
         case 'b':
         {
             double radius;
-            printf("Enter the radius of the circle: ");
+            printf("Informe o raio do círculo: ");
             if (scanf("%lf", &radius) != 1 || radius < 0)
             {
-                fprintf(stderr, "Invalid input for radius.\n");
+                fprintf(stderr, "Entrada inválida para o raio.\n");
                 break;
             }
-            printf("Perimeter of the circle: %.2lf\n", perimetro_circle(radius));
+            printf("Perímetro do círculo (r=%.2f): %.2f\n", radius, perimetro_circle(radius));
         }
         break;
         case 'c':
@@ -68,91 +70,91 @@ int main()
                 break;
             }
 
-            printf("Area of the rectangle: %.2lf\n", area_rectangle(length, width));
+            printf("Área do retângulo (%.2f x %.2f): %.2f\n", length, width, area_rectangle(length, width));
         }
         break;
         case 'd':
         {
             double length, width;
-            printf("Enter the length of the rectangle: ");
+            printf("Informe o comprimento do retângulo: ");
             if (scanf("%lf", &length) != 1 || length < 0)
             {
-                fprintf(stderr, "Invalid input for length.\n");
+                fprintf(stderr, "Entrada inválida para o comprimento.\n");
                 break;
             }
-            printf("Enter the width of the rectangle: ");
+            printf("Informe a largura do retângulo: ");
             if (scanf("%lf", &width) != 1 || width < 0)
             {
-                fprintf(stderr, "Invalid input for width.\n");
+                fprintf(stderr, "Entrada inválida para a largura.\n");
                 break;
             }
-            printf("Perimeter of the rectangle: %.2lf\n", perimetro_rectangle(length, width));
+            printf("Perímetro do retângulo (%.2f x %.2f): %.2f\n", length, width, perimetro_rectangle(length, width));
         }
         break;
         case 'e':
         {
             double base, height;
-            printf("Enter the base of the triangle: ");
+            printf("Informe a base do triângulo: ");
             if (scanf("%lf", &base) != 1 || base < 0)
             {
-                fprintf(stderr, "Invalid input for base.\n");
+                fprintf(stderr, "Entrada inválida para a base.\n");
                 break;
             }
-            printf("Enter the height of the triangle: ");
+            printf("Informe a altura do triângulo: ");
             if (scanf("%lf", &height) != 1 || height < 0)
             {
-                fprintf(stderr, "Invalid input for height.\n");
+                fprintf(stderr, "Entrada inválida para a altura.\n");
                 break;
             }
-            printf("Area of the triangle: %.2lf\n", area_triangle(base, height));
+            printf("Área do triângulo (b=%.2f, h=%.2f): %.2f\n", base, height, area_triangle(base, height));
         }
         break;
         case 'f':
         {
-            double side1, side2, side3;
-            printf("Enter the first side of the triangle: ");
-            if (scanf("%lf", &side1) != 1 || side1 < 0)
+            double lado1, lado2, lado3;
+            printf("Informe o primeiro lado do triângulo: ");
+            if (scanf("%lf", &lado1) != 1 || lado1 < 0)
             {
-                fprintf(stderr, "Invalid input for side1.\n");
+                fprintf(stderr, "Entrada inválida para o lado 1.\n");
                 break;
             }
-            printf("Enter the second side of the triangle: ");
-            if (scanf("%lf", &side2) != 1 || side2 < 0)
+            printf("Informe o segundo lado do triângulo: ");
+            if (scanf("%lf", &lado2) != 1 || lado2 < 0)
             {
-                fprintf(stderr, "Invalid input for side2.\n");
+                fprintf(stderr, "Entrada inválida para o lado 2.\n");
                 break;
             }
-            printf("Enter the third side of the triangle: ");
-            if (scanf("%lf", &side3) != 1 || side3 < 0)
+            printf("Informe o terceiro lado do triângulo: ");
+            if (scanf("%lf", &lado3) != 1 || lado3 < 0)
             {
-                fprintf(stderr, "Invalid input for side3.\n");
+                fprintf(stderr, "Entrada inválida para o lado 3.\n");
                 break;
             }
-            printf("Perimeter of the triangle: %.2lf\n", perimetro_triangle(side1, side2, side3));
+            printf("Perímetro do triângulo: %.2f\n", perimetro_triangle(lado1, lado2, lado3));
         }
         break;
         case 'g':
         {
-            double side;
-            printf("Enter the side of the square: ");
-            if (scanf("%lf", &side) != 1 || side < 0)
+            double lado;
+            printf("Informe o lado do quadrado: ");
+            if (scanf("%lf", &lado) != 1 || lado < 0)
             {
-                fprintf(stderr, "Invalid input for side.\n");
+                fprintf(stderr, "Entrada inválida para o lado.\n");
                 break;
             }
-            printf("Area of the square: %.2lf\n", area_square(side));
+            printf("Área do quadrado (l=%.2f): %.2f\n", lado, area_square(lado));
         }
         break;
         case 'h':
         {
-            double side;
-            printf("Enter the side of the square: ");
-            if (scanf("%lf", &side) != 1 || side < 0)
+            double lado;
+            printf("Informe o lado do quadrado: ");
+            if (scanf("%lf", &lado) != 1 || lado < 0)
             {
-                fprintf(stderr, "Invalid input for side.\n");
+                fprintf(stderr, "Entrada inválida para o lado.\n");
                 break;
             }
-            printf("Perimeter of the square: %.2lf\n", perimetro_square(side));
+            printf("Perímetro do quadrado (l=%.2f): %.2f\n", lado, perimetro_square(lado));
         }
         break;
         default:
